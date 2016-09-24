@@ -6,23 +6,34 @@ public class NumerosPares {
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);// cria um scanner
-		System.out.println("Digite um numero: ");// imprime mensagem
-		int valorDigitado = scanner.nextInt();// guarda na variavel o valor
-												// digitado
-		int contadorPar = 0;// inicia variavel com 0
+		// cria um scanner
+		Scanner scanner = new Scanner(System.in);
 
-		for (int i = 1; i <= valorDigitado; i++) {// enquanto i=1 for <=
-													// valorDigitado i
-													// incrementa +1
-			if (i % 2 == 0) {// codição para saber se é numero par i/2 se restou
-								// algum valor
-				System.out.println(i);// imprime i
-				contadorPar++;// incrementa contadorPar para saber onde parar
+		// imprime mensagem
+		System.out.println("Digite um numero: ");
+
+		// guarda na variavel o valor digitado
+		int valorDigitado = scanner.nextInt();
+		// inicia variavel com 0
+		int contadorPar = 0;
+
+		// enquanto i=1 for <=
+		// valorDigitado i
+		// incrementa +1
+		for (int i = 1; i <= valorDigitado; i++) {
+
+			// codição para saber se é numero par i/2 se restou algum valor
+			if (i % 2 == 0) {
+				// imprime i
+				System.out.println(i);
+				// incrementa contadorPar para saber onde parar
+				contadorPar++;
 			}
-			if (contadorPar == 10) {// se o contador for = 10
+			// se o contador for = 10 sai for
+			if (contadorPar == 10) {
 
-				break; // para a execução;
+				// para a execução;
+				break;
 			}
 		}
 
