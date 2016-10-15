@@ -21,7 +21,8 @@ public class TestarListaPessoa {
 		
 		pessoas.remove(0);
 		pessoas.remove(new Pessoa("D", "4"));
-		Collections.sort(pessoas);
+		//Collections.sort(pessoas);//ordenar compareTo
+		Collections.sort(pessoas, new PessoaPorCpfComparator());//ordenar
 		
 		System.out.println("pessoas.size: "+ indexOf);
 		System.out.println("pessoas.size: "+pessoas.size());
