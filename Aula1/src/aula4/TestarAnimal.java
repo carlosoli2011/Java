@@ -9,10 +9,10 @@ public class TestarAnimal {
 		Reptil jacare = new Jacare();
 		Humano humano = new Humano();
 		Veterinario veterinario = new Veterinario();
-		veterinario.examinar(baleia);
-		veterinario.examinar(jacare);
-		veterinario.examinar(humano);
-		veterinario.examinar(veterinario);
+		//veterinario.examinar(baleia);
+		//veterinario.examinar(jacare);
+		//veterinario.examinar(humano);
+		//veterinario.examinar(veterinario);
 		
 	}
 

@@ -6,7 +6,7 @@ public class Veterinario extends Mamifero{
 		if(animal instanceof Humano){
 			throw new IllegalArgumentException("Não posso examinar Humanos");
 		}
-		animal.emitirSom();
+		//animal.emitirSom();
 		
 	}
 

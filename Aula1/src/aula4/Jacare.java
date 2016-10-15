@@ -9,6 +9,6 @@ public class Jacare extends Reptil implements Examinavel{
 		
 	}
 	
-	public 
+	
 
 }
