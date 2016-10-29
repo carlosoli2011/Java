@@ -16,7 +16,7 @@ public class TestarGaragem {
 	public static void main(String[] args) {
 		// TODO
 		int opcao = 0;
-		Garagem garagem = new Garagem();
+		//Garagem garagem = new Garagem();
 		Scanner scanner = new Scanner(System.in);
 
 		while (opcao != 5) {
@@ -40,44 +40,44 @@ public class TestarGaragem {
 				veiculo.setAno(scanner.next());
 				System.out.println("Preço: ");
 				veiculo.setPreco(scanner.nextDouble());
-				garagem.adicionar(veiculo);
+				//garagem.adicionar(veiculo);
 				System.out.println("Veiculo adicionado: " + veiculo);
 				
 				break;
 
-			case 2:
-				Garagem vGaragem = new Garagem();
-				System.out.println("Digite a placa: ");
-				vGaragem.vender(scanner.next());
+//			case 2:
+//				//Garagem vGaragem = new Garagem();
+//				System.out.println("Digite a placa: ");
+//				vGaragem.vender(scanner.next());
+//				
+//				break;
+//			case 3:
+//				Garagem bGaragem = new Garagem();
+//				System.out.println("Digite a placa: ");
+//				String placa = scanner.next();
 				
-				break;
-			case 3:
-				Garagem bGaragem = new Garagem();
-				System.out.println("Digite a placa: ");
-				String placa = scanner.next();
 				
+//				for (Veiculo lista : garagem.listar()) {
+//
+//					System.out.println(lista.getMarca() + " - "
+//							+ lista.getModelo() + " - " + lista.getPlaca()
+//							+ " - " + lista.getAno() + " - " + lista.getPreco()
+//							+ " - ");
+//
+//				}
 				
-				for (Veiculo lista : garagem.listar()) {
-
-					System.out.println(lista.getMarca() + " - "
-							+ lista.getModelo() + " - " + lista.getPlaca()
-							+ " - " + lista.getAno() + " - " + lista.getPreco()
-							+ " - ");
-
-				}
-				
-				break;
+				//break;
 			case 4:
 				// faz for
 				System.out.println("Lista de Veiculos");
-				for (Veiculo lista : garagem.listar()) {
-
-					System.out.println(lista.getMarca() + " - "
-							+ lista.getModelo() + " - " + lista.getPlaca()
-							+ " - " + lista.getAno() + " - " + lista.getPreco()
-							+ " - ");
-
-				}
+//				for (Veiculo lista : garagem.listar()) {
+//
+//					System.out.println(lista.getMarca() + " - "
+//							+ lista.getModelo() + " - " + lista.getPlaca()
+//							+ " - " + lista.getAno() + " - " + lista.getPreco()
+//							+ " - ");
+//
+//				}
 				
 				break;
 			case 5:
