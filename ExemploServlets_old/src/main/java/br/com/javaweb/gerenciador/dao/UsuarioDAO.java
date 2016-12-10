@@ -9,8 +9,8 @@ public class UsuarioDAO {
 
 	private final static Map<String, Usuario> USUARIOS = new HashMap<>();
 	static {
-		USUARIOS.put("teste@teste.com", new Usuario("teste@teste.com","123456"));
-		
+		USUARIOS.put("guilherme.silveira@alura.com.br", new Usuario("guilherme.silveira@alura.com.br","silveira"));
+		USUARIOS.put("teste@teste", new Usuario("teste@teste","123"));
 	}
 
 	public Usuario buscaPorEmailESenha(String email, String senha) {

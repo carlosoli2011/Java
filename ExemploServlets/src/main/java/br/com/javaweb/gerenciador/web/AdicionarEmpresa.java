@@ -2,28 +2,26 @@ package br.com.javaweb.gerenciador.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import br.com.javaweb.gerenciador.Empresa;
 import br.com.javaweb.gerenciador.dao.EmpresaDAO;
 
 /**
- * Servlet implementation class BuscaEmpresa
+ * Servlet implementation class AdicionarEmpresa
  */
-@WebServlet("/busca")
-public class BuscaEmpresa extends HttpServlet {
+@WebServlet("/addcompany")
+public class AdicionarEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BuscaEmpresa() {
+	public AdicionarEmpresa() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,33 +32,7 @@ public class BuscaEmpresa extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String filtro = request.getParameter("filtro");
-		
-		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
-		
-		new EmpresaDAO().buscaPorSimilaridade(filtro);
-
-		StringBuffer html = new StringBuffer();
-		
-		html.append("<html>\n");
-		html.append("<head><title>Busca por Empresas</title></head>\n");
-		html.append("<body>\n<Resultado da Busca: >\n");
-		
-		html.append("<url>");
-
-		for (Empresa empresa : empresas) {
-			
-			html.append("<li>" + empresa.getId() + ":" + empresa.getNome() + "<li>");
-		}
-		
-		html.append("</body>");
-		html.append("</html>");
-		
-		PrintWriter out = response.getWriter();
-		
-		out.println(html);
-		
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -70,7 +42,19 @@ public class BuscaEmpresa extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
+		String nome = request.getParameter("nome"); // Criar objeto nome
+		int statusCode = HttpServletResponse.SC_OK; //Retorna o Status Code (200 = PASS)
+		Empresa empresa = new Empresa(nome); // Criar objeto empresa
+		new EmpresaDAO().adiciona(empresa); //Invocar o metodo adiciona da EmpresaDAO
+		PrintWriter writer = response.getWriter(); //Criar buffer do writer - arcaico
+		writer.println("<html><body>Empresa " 
+				+ nome 
+				+ " Adicionada com Sucesso!" 
+				+ " Status: \n" 
+				+ statusCode
+				+ "</body></html>");
+
 		doGet(request, response);
 	}
 
