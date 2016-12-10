@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.javaweb.gerenciador.Usuario;
+import br.com.javaweb.gerenciador.dao.UsuarioDAO;
 
 /**
  * Servlet Filter implementation class FiltroDeAuditoria
@@ -32,6 +33,7 @@ public class FiltroDeAuditoriaSession implements Filter {
 	 */
 	public void destroy() {
 		// TODO Auto-generated method stub
+		
 	}
 
 	/**

@@ -3,6 +3,7 @@ package br.com.javaweb.gerenciador.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,15 +48,12 @@ public class AdicionarEmpresa extends HttpServlet {
 		int statusCode = HttpServletResponse.SC_OK; //Retorna o Status Code (200 = PASS)
 		Empresa empresa = new Empresa(nome); // Criar objeto empresa
 		new EmpresaDAO().adiciona(empresa); //Invocar o metodo adiciona da EmpresaDAO
-		PrintWriter writer = response.getWriter(); //Criar buffer do writer - arcaico
-		writer.println("<html><body>Empresa " 
-				+ nome 
-				+ " Adicionada com Sucesso!" 
-				+ " Status: \n" 
-				+ statusCode
-				+ "</body></html>");
-
-		doGet(request, response);
+		request.setAttribute("empresa", empresa.getNome());
+		
+		RequestDispatcher disp = 
+		request.getRequestDispatcher
+		("/WEB-INF/paginas/novaEmpresa.jsp");
+		disp.forward(request, response);
 	}
 
 }

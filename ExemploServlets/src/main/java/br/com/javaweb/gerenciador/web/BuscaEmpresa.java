@@ -19,6 +19,8 @@ import br.com.javaweb.gerenciador.dao.EmpresaDAO;
 @WebServlet("/busca")
 public class BuscaEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	//String filtro;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -36,11 +38,27 @@ public class BuscaEmpresa extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String filtro = request.getParameter("filtro");
+		//filtro = request.getParameter("filtro");
 		
-		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
+		/*
+		try{
+			Thread.sleep(5000);
+		}catch(InterruptedException e){
+			//TODO 
+			e.printStackTrace();
+		}*/
 		
-		new EmpresaDAO().buscaPorSimilaridade(filtro);
+		Collection<Empresa> empresas = 
+				new EmpresaDAO().buscaPorSimilaridade(filtro);
+		request.setAttribute("empresas", empresas);
+		request.getRequestDispatcher
+		("/WEB-INF/paginas/buscaEmpresa.jsp").
+		forward(request, response);
+		
+		
+		
 
+		/*
 		StringBuffer html = new StringBuffer();
 		
 		html.append("<html>\n");
@@ -62,6 +80,7 @@ public class BuscaEmpresa extends HttpServlet {
 		out.println(html);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		*/
 	}
 
 	/**
@@ -72,6 +91,20 @@ public class BuscaEmpresa extends HttpServlet {
 			throws ServletException, IOException {
 		
 		doGet(request, response);
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		System.out.println("Inicializando a Servlet "+ this);
+	}
+	
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		super.destroy();
+		System.out.println("Inicializando a Servlet "+ this);
 	}
 
 }

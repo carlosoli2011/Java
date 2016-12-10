@@ -2,6 +2,7 @@ package br.com.javaweb.gerenciador.web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -31,7 +32,9 @@ public class LogoutSession extends HttpServlet {
 		if(session.getAttribute("usuario.logado") != null){
 			session.removeAttribute("usuario.logado");
 			session.invalidate();
-			response.sendRedirect("logout.html");
+			RequestDispatcher dispatcher = 
+			request.getRequestDispatcher("/WEB-INF/paginas/logout.html");
+			dispatcher.forward(request, response);
 		}
 
 	}
