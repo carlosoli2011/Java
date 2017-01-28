@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+  
+    <h:head>  
+  
+    </h:head>  
+      
+    <h:body>  
+      	<h:form>
+      	<p:panel>
+       	 Login: <p:inputText id="login" value="#{loginMB.usuario.login}"/>
+       	 </p:panel>
+       	 <p:panel>
+       	 Senha: <p:password id="senha" value="#{loginMB.usuario.senha}"/>
+       	 </p:panel>
+       	 <p:commandButton value="Login" action="#{loginMB.login}" update="@form"/>
+       	 <p:outputPanel rendered="#{loginMB.logado}">
+       	 	Logado!!!
+       	 </p:outputPanel>
+       	 <p:outputPanel rendered="#{!loginMB.logado and loginMB.usuario.login != null}">
+       	 	Usuario e senha invalidos!!!
+       	 </p:outputPanel>
+        </h:form>
+    </h:body>  
+</html>  

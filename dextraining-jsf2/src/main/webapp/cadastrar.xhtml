@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/layout.xhtml">
+
+
+	<ui:define name="conteudo">
+
+		<h:form>
+			<p:panel>
+       	 Nome: <p:inputText id="nome"
+					value="#{salvarUsuarioMB.usuario.nome}" />
+			</p:panel>
+			<p:panel>
+       	 Login: <p:inputText id="login"
+					value="#{salvarUsuarioMB.usuario.login}" />
+			</p:panel>
+			<p:panel>
+       	 Senha: <p:password id="senha"
+					value="#{salvarUsuarioMB.usuario.senha}" />
+			</p:panel>
+			<p:commandButton value="Salvar" action="#{salvarUsuarioMB.salvar}" />
+		</h:form>
+	</ui:define>
+</ui:composition>

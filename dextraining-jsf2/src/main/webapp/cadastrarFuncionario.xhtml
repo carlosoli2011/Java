@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/layout.xhtml">
+
+
+	<ui:define name="conteudo">
+		<h:form>
+			<p:panel>
+       	 Nome: <p:inputText id="nome"
+					value="#{funcionarioMB.funcionario.nome}" />
+			</p:panel>
+			<p:panel>
+       	 Sobrenome: <p:inputText id="sobrenome"
+					value="#{funcionarioMB.funcionario.sobrenome}" />
+			</p:panel>
+			<p:panel>
+       	 Email: <p:inputText id="email"
+					value="#{funcionarioMB.funcionario.email}" />
+			</p:panel>
+			<p:panel>
+       	 Telefone: <p:inputText id="telefone"
+					value="#{funcionarioMB.funcionario.telefone}" />
+			</p:panel>
+			<p:commandButton value="Salvar" action="#{funcionarioMB.salvar}" />
+		</h:form>
+	</ui:define>
+</ui:composition>

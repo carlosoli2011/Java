@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Dextraining</title>
+</h:head>
+
+<h:body>
+
+	<div>
+		<ui:insert name="cabecalho">
+			<p:panel>
+       	 Usuario: #{loginMB.usuario.login}
+       	</p:panel>
+		</ui:insert>
+	</div>
+	<div>
+		<ui:insert name="menu">
+			<h:form>
+				<p:growl id="messages" />
+
+				<p:menubar>
+					<p:submenu label="File" icon="ui-icon-document">
+						<p:submenu label="New" icon="ui-icon-contact">
+							<p:menuitem value="Add User" url="/cadastrarFuncionario.jsf" />
+							<p:menuitem value="Add Employee" url="/cadastrarUsuario.jsf" />
+						</p:submenu>
+					</p:submenu>
+
+					<p:submenu label="List" icon="ui-icon-help">
+						<p:submenu label="Search" icon="ui-icon-search">
+							<p:menuitem value="User" url="/listarusuarios.jsf" />
+							<p:menuitem value="Employee" url="/listarFuncionarios.jsf" />
+						</p:submenu>
+					</p:submenu>
+					
+					 <p:menuitem value="Quit" action="#{loginMB.logout}" icon="ui-icon-close" />
+
+				</p:menubar>
+			</h:form>
+		</ui:insert>
+	</div>
+
+	<div>
+		<ui:insert name="conteudo" />
+	</div>
+
+	<div>
+		<ui:insert name="rodape">
+       RODAPÉ
+      </ui:insert>
+	</div>
+</h:body>
+</html>
