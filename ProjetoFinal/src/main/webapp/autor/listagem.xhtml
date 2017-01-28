@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/layout.xhtml">
+
+
+	<ui:define name="conteudo">
+		<h:form id="formListagemAutor" prependId="false">
+			<p:growl id="growl" showDetail="false" />
+			<p:outputLabel>Autores</p:outputLabel>
+			<p:dataTable var="autor" value="#{autorMB.autores}">
+				<p:column headerText="Autores">
+					<h:outputText value="#{autor.nome} "/>
+				</p:column>
+				<p:column headerText="Ano de Nascimento">
+					<h:outputText value="#{autor.anoDeNascimento} "/>
+				</p:column>
+			</p:dataTable>
+			<p:commandButton value="Novo" action="#{autorMB.irParaNovoAutor}" />
+			<p:outputLabel for="autor" value="Lista: " />
+			<p:selectOneMenu id="autor" value="#{autorMB.autor}">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItems value="#{autorMB.autores}" var="autor"
+					itemLabel="#{autor.nome}" />
+			</p:selectOneMenu>
+			<p:commandButton value="Mostrar Senha" update="painelSenha" />
+			<p:outputPanel id="painelSenha">
+        		Senha: #{usuarioMB.usuario.senha}
+        	</p:outputPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>

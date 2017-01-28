@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/layout.xhtml">
+
+
+	<ui:define name="conteudo">
+		<h:form id="formLivro" prependId="false">
+			<p:growl id="growl" showDetail="true" />
+			<p:fieldset legend="Novo Livro">
+				<p:panel>
+					<p:outputLabel for="autor" value="Autor: " />
+						<p:selectOneMenu id="autor" value="#{livroMB.livro.autor}">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItems value="#{autorMB.autores}" var="autor" 
+							itemLabel="#{autor.nome}" />
+						</p:selectOneMenu>
+				</p:panel>
+				<p:panel>
+					<p:outputLabel>Titulo do Livro:</p:outputLabel>
+					<p:inputText label="Titulo do Livro" id="titulo"
+						value="#{livroMB.livro.titulo}" required="true" />
+				</p:panel>
+				<p:panel>
+					<p:outputLabel>Editora:</p:outputLabel>
+					<p:inputText label="Editora" id="editora"
+						value="#{livroMB.livro.editora}" required="true" />
+				</p:panel>
+				<p:commandButton id="botaoSalvar" value="Salvar"
+					action="#{livroMB.salvar}" />
+				<p:commandButton id="botaoVoltar" value="Voltar" immediate="true"
+					action="listagem.jsf?faces-redirect=true" />
+			</p:fieldset>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

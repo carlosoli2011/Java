@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/layout.xhtml">
+
+
+	<ui:define name="conteudo">
+		<h:form id="formListagemLivro" prependId="false">
+			<p:growl id="growl" showDetail="false" />
+			<p:outputLabel>Livros</p:outputLabel>
+			<p:dataTable var="livro" value="#{livroMB.livros}">
+				<p:column headerText="Livros">
+					<h:outputText value="#{livro.titulo} " />
+				</p:column>
+				<p:column headerText="Editora">
+					<h:outputText value="#{livro.editora} " />
+				</p:column>
+			</p:dataTable>
+			<p:commandButton value="Novo" action="#{livroMB.irParaNovoLivro}" />
+			<p:outputLabel for="livro" value="Lista: " />
+			<p:selectOneMenu id="livro" value="#{livroMB.livro}">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItems value="#{livroMB.livros}" var="livro"
+					itemLabel="#{livro.titulo}" />
+			</p:selectOneMenu>
+			<p:commandButton value="Mostrar Senha" update="painelSenha" />
+			<p:outputPanel id="painelSenha">
+        		Senha: #{usuarioMB.usuario.senha}
+        	</p:outputPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>
